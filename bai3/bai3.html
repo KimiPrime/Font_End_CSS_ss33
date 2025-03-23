@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="categorySelect">Chọn danh mục:</label>
+    <select id="categorySelect">
+      <option value="all">Tất cả</option>
+      <option value="Đồ ăn">Đồ ăn</option>
+      <option value="Nước">Nước</option>
+      <option value="Dụng cụ">Dụng cụ</option>
+    </select>
+    <button id="filterButton">Lọc</button>
+
+    <ul id="itemList">
+      <li data-category="Đồ ăn">Tên đồ ăn: Rau sạch - Danh mục: Đồ ăn</li>
+      <li data-category="Đồ ăn">Tên đồ ăn: Thịt lợn - Danh mục: Đồ ăn</li>
+      <li data-category="Nước">
+        Tên đồ uống: Pepsi không calo - Danh mục: Nước
+      </li>
+      <li data-category="Nước">Tên đồ uống: Cocacola - Danh mục: Nước</li>
+      <li data-category="Dụng cụ">Tên dụng cụ: Cờ lê - Danh mục: Dụng cụ</li>
+      <li data-category="Dụng cụ">Tên dụng cụ: Tua vít - Danh mục: Dụng cụ</li>
+    </ul>
+
+    <script>
+      document
+        .getElementById("filterButton")
+        .addEventListener("click", function () {
+          let selectedCategory =
+            document.getElementById("categorySelect").value;
+          let items = document.querySelectorAll("#itemList li");
+
+          items.forEach((item) => {
+            if (
+              selectedCategory === "all" ||
+              item.getAttribute("data-category") === selectedCategory
+            ) {
+              item.style.display = "list-item";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

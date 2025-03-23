@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>document</title>
+    <style>
+      .password-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 300px;
+      }
+      .password-input {
+        width: 100%;
+        padding: 10px;
+        padding-right: 40px;
+        font-size: 16px;
+      }
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="password-container">
+      <input
+        type="password"
+        id="password"
+        class="password-input"
+        placeholder="Enter your password"
+      />
+      <span class="toggle-password" onclick="togglePassword()">
+        <i style="font-size: 24px" class="fa">&#xf06e;</i></span
+      >
+    </div>
+
+    <script>
+      function togglePassword() {
+        let passwordInput = document.getElementById("password");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+        } else {
+          passwordInput.type = "password";
+        }
+      }
+    </script>
+  </body>
+</html>
